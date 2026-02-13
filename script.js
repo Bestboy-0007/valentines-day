@@ -1,171 +1,175 @@
+// Login credentials - CHANGE THESE!
+const CORRECT_USERNAME = "love";
+const CORRECT_PASSWORD = "love";
+
+// DOM Elements
+const loginForm = document.getElementById('loginForm');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const successOverlay = document.getElementById('successOverlay');
+
+// Initialize on load
 document.addEventListener('DOMContentLoaded', function() {
-    createFallingHearts();
-    createSparkles();
-    startTypingEffect();
+    createFloatingHearts();
+    addKeyboardEffects();
 });
 
-const loveMessages = [
-    "My dearest love,",
-    "You are my everything 💕",
-    "Every moment with you is precious",
-    "I love you more than yesterday",
-    "You make my life complete",
-    "Forever yours 💍"
-];
-
-let messageIndex = 0;
-
-function createFallingHearts() {
+// Create floating hearts
+function createFloatingHearts() {
     const container = document.getElementById('heartsContainer');
-    const heartSymbols = ['❤️', '💕', '💖', '💗', '💘', '💞', '💟', '💝', '🫀'];
+    const heartSymbols = ['❤️', '💕', '💖', '💗', '💘', '💞', '💟', '🥰', '😘', '💝'];
     
-    for (let i = 0; i < 60; i++) {
-        createHeart(container, heartSymbols);
+    // Create initial hearts
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            createHeart(container, heartSymbols);
+        }, i * 150);
     }
     
+    // Continuously create new hearts
     setInterval(() => {
         createHeart(container, heartSymbols);
-    }, 150);
+    }, 400);
 }
 
 function createHeart(container, heartSymbols) {
     const heart = document.createElement('div');
-    heart.className = 'heart';
+    heart.className = 'heart-float';
     heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+    
     heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
-    heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
-    heart.style.animationDelay = Math.random() * 5 + 's';
-    heart.style.opacity = Math.random() * 0.5 + 0.3;
-    container.appendChild(heart);
-    setTimeout(() => { heart.remove(); }, (Math.random() * 3 + 5) * 1000);
-}
-
-function createSparkles() {
-    const container = document.getElementById('sparkles');
-    for (let i = 0; i < 30; i++) {
-        createSparkle(container);
-    }
-    setInterval(() => { createSparkle(container); }, 300);
-}
-
-function createSparkle(container) {
-    const sparkle = document.createElement('div');
-    sparkle.className = 'sparkle';
-    sparkle.style.left = Math.random() * 100 + 'vw';
-    sparkle.style.top = Math.random() * 100 + 'vh';
-    sparkle.style.width = (Math.random() * 3 + 2) + 'px';
-    sparkle.style.height = sparkle.style.width;
-    sparkle.style.animationDelay = Math.random() * 2 + 's';
-    container.appendChild(sparkle);
-    setTimeout(() => { sparkle.remove(); }, 4000);
-}
-
-function startTypingEffect() {
-    const typedText = document.getElementById('typedText');
-    let fullText = "My love, you are my everything! 💕";
-    let index = 0;
     
-    function type() {
-        if (index < fullText.length) {
-            typedText.textContent += fullText.charAt(index);
-            index++;
-            setTimeout(type, 80);
-        } else {
-            setTimeout(() => {
-                messageIndex = (messageIndex + 1) % loveMessages.length;
-                typedText.textContent = '';
-                fullText = loveMessages[messageIndex];
-                index = 0;
-                type();
-            }, 3000);
+    const duration = Math.random() * 4 + 6;
+    heart.style.animationDuration = duration + 's';
+    
+    const size = Math.random() * 15 + 15;
+    heart.style.fontSize = size + 'px';
+    
+    heart.style.animationDelay = Math.random() * 3 + 's';
+    
+    container.appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+// Toggle password visibility
+function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('eyeIcon');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+    }
+}
+
+// Add keyboard effects
+function addKeyboardEffects() {
+    document.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            loginForm.dispatchEvent(new Event('submit'));
         }
+    });
+}
+
+// Handle login form submission
+loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const enteredUsername = usernameInput.value.toLowerCase().trim();
+    const enteredPassword = passwordInput.value.toLowerCase().trim();
+    
+    if (enteredUsername === CORRECT_USERNAME && enteredPassword === CORRECT_PASSWORD) {
+        showSuccess();
+    } else {
+        showError();
     }
-    setTimeout(type, 1000);
-}
-
-function sayYes() {
-    document.querySelector('.question-section').style.display = 'none';
-    const response = document.getElementById('response');
-    response.classList.add('show');
-    createCelebrationHearts();
-    createSuperCelebration();
-}
-
-function moveNo() {
-    const noBtn = document.querySelector('.no-btn');
-    const containerRect = document.querySelector('.container').getBoundingClientRect();
-    const btnRect = noBtn.getBoundingClientRect();
-    
-    const maxX = containerRect.width - btnRect.width - 60;
-    const maxY = containerRect.height - btnRect.height - 60;
-    const randomX = (Math.random() - 0.5) * maxX;
-    const randomY = (Math.random() - 0.5) * maxY;
-    
-    noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
-    
-    const texts = ['Pretty Please? 🥺', "Don't break my heart 😢", 'I love you! 💕', 'Please say yes 🥺', "You're my everything 💖", 'Say YES! 😍', 'I adore you! 💝'];
-    noBtn.textContent = texts[Math.floor(Math.random() * texts.length)];
-    
-    const currentSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
-    noBtn.style.fontSize = (currentSize + 2) + 'px';
-    
-    noBtn.style.animation = 'btnShake 0.5s ease-in-out';
-    setTimeout(() => { noBtn.style.animation = ''; }, 500);
-}
-
-function createCelebrationHearts() {
-    const container = document.getElementById('floatingHearts');
-    const heartSymbols = ['❤️', '💕', '💖', '💗', '💘', '💞', '💟', '🥰', '😘', '💝', '👑', '💍'];
-    
-    for (let i = 0; i < 150; i++) {
-        setTimeout(() => {
-            const heart = document.createElement('div');
-            heart.className = 'floating-heart';
-            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-            heart.style.fontSize = (Math.random() * 25 + 25) + 'px';
-            container.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 5000);
-        }, i * 20);
-    }
-}
-
-function createSuperCelebration() {
-    const container = document.getElementById('sparkles');
-    for (let i = 0; i < 50; i++) {
-        setTimeout(() => {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = Math.random() * 100 + 'vw';
-            sparkle.style.top = Math.random() * 100 + 'vh';
-            sparkle.style.width = '6px';
-            sparkle.style.height = '6px';
-            sparkle.style.background = '#ff69b4';
-            container.appendChild(sparkle);
-            setTimeout(() => { sparkle.remove(); }, 3000);
-        }, i * 30);
-    }
-}
-
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('btn')) return;
-    if (e.target.tagName === 'IMG') return;
-    
-    const container = document.getElementById('floatingHearts');
-    const heart = document.createElement('div');
-    heart.className = 'floating-heart';
-    const hearts = ['❤️', '💕', '💖', '💗', '💘', '💞'];
-    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-    heart.style.left = e.clientX + 'px';
-    heart.style.top = e.clientY + 'px';
-    heart.style.animationDuration = '2s';
-    heart.style.fontSize = '30px';
-    container.appendChild(heart);
-    setTimeout(() => { heart.remove(); }, 2000);
 });
 
+function showSuccess() {
+    // Show success overlay
+    successOverlay.classList.add('show');
+    
+    // Create celebration hearts
+    createCelebration();
+    
+    // Redirect after animation
+    setTimeout(() => {
+        localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('userName', usernameInput.value);
+        window.location.href = 'valentine.html';
+    }, 2500);
+}
+
+function showError() {
+    // Shake the form
+    const loginCard = document.querySelector('.login-card');
+    loginCard.style.animation = 'none';
+    loginCard.offsetHeight;
+    loginCard.style.animation = 'shake 0.5s ease-in-out';
+    
+    // Change button temporarily
+    const loginButton = document.querySelector('.login-button');
+    const originalText = loginButton.innerHTML;
+    loginButton.innerHTML = '<span class="btn-text">Try Again</span> <span class="btn-icon">💔</span>';
+    loginButton.style.background = 'linear-gradient(135deg, #666, #888)';
+    
+    setTimeout(() => {
+        loginButton.innerHTML = originalText;
+        loginButton.style.background = 'linear-gradient(135deg, #e91e63, #ff4081)';
+        passwordInput.value = '';
+    }, 1500);
+}
+
+function createCelebration() {
+    const container = document.body;
+    const heartSymbols = ['❤️', '💕', '💖', '💗', '💘', '💞', '💟', '🥰', '😘', '💝', '🎉', '✨'];
+    
+    for (let i = 0; i < 80; i++) {
+        setTimeout(() => {
+            const element = document.createElement('div');
+            element.style.position = 'fixed';
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.top = '-50px';
+            element.style.fontSize = (Math.random() * 25 + 15) + 'px';
+            element.style.animation = 'fallDown 2.5s ease-out forwards';
+            element.style.zIndex = '2000';
+            element.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            
+            container.appendChild(element);
+            
+            setTimeout(() => {
+                element.remove();
+            }, 2500);
+        }, i * 25);
+    }
+}
+
+// Add shake animation
 const style = document.createElement('style');
-style.textContent = `@keyframes btnShake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }`;
+style.textContent = `
+    @keyframes fallDown {
+        0% {
+            transform: translateY(0) rotate(0deg) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(720deg) scale(0.5);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+        20%, 40%, 60%, 80% { transform: translateX(8px); }
+    }
+`;
 document.head.appendChild(style);
