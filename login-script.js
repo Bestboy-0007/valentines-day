@@ -113,7 +113,7 @@ function showSuccess() {
         localStorage.setItem('userName', usernameInput.value);
         
         // Show the Valentine's Day page
-        window.location.href = 'index.html';
+        window.location.href = 'valentine.html';
     }, 1500);
 }
 
