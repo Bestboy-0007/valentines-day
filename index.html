@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Falling Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="card">
+            <div class="heart-icon">❤️</div>
+            <h1 class="title">Happy Valentine's Day</h1>
+            <p class="subtitle">My Sweetheart,</p>
+            <div class="message">
+                <p>Every moment with you feels like a beautiful dream.</p>
+                <p>You are my sunshine, my everything, and my reason to smile.</p>
+                <p>I love you more than words can express!</p>
+            </div>
+            
+            <!-- Question Section -->
+            <div class="question-section">
+                <p class="question">Will you be my Valentine? 💕</p>
+                <div class="buttons">
+                    <button class="btn yes-btn" onclick="sayYes()">Yes! ❤️</button>
+                    <button class="btn no-btn" onclick="moveNo()">Maybe 😅</button>
+                </div>
+            </div>
+
+            <!-- Response Section (Hidden initially) -->
+            <div class="response" id="response">
+                <h2>YAY! 🥰</h2>
+                <p>You just made the happiest person in the world!</p>
+                <p>I love you so much! 💖💖💖</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
