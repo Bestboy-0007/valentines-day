@@ -447,3 +447,378 @@ body {
         font-size: 35px;
     }
 }
+
+/* Valentine Card Styles */
+.valentine-card {
+    background: var(--dark-card);
+    border-radius: 30px;
+    padding: 50px 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        0 0 80px rgba(233, 30, 99, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+/* Photo Section */
+.photo-section {
+    margin-bottom: 30px;
+}
+
+.photo-frame-elegant {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 15px;
+    position: relative;
+}
+
+.photo-inner-elegant {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 30px var(--glow);
+}
+
+.photo-inner-elegant .love-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-placeholder-elegant {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 40px;
+}
+
+.photo-placeholder-elegant p {
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.frame-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    z-index: -1;
+    animation: glowPulse 3s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+.photo-label {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 24px;
+    color: var(--primary);
+}
+
+/* Elegant Header */
+.elegant-header {
+    margin-bottom: 30px;
+}
+
+.heart-line {
+    font-size: 30px;
+    margin-bottom: 15px;
+    animation: heartbeat 1s ease-in-out infinite;
+}
+
+.elegant-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: var(--text);
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--text), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.elegant-subtitle {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 26px;
+    color: var(--primary);
+}
+
+/* Love Letter */
+.love-letter-elegant {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.letter-content {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.typed-text {
+    min-height: 60px;
+}
+
+/* Messages Grid */
+.messages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.message-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.message-item:hover {
+    background: rgba(233, 30, 99, 0.1);
+    transform: translateY(-2px);
+}
+
+.message-icon {
+    font-size: 24px;
+}
+
+.message-item p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Love Counter */
+.love-counter {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(233, 30, 99, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(233, 30, 99, 0.2);
+}
+
+.counter-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.counter-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter-item span {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+}
+
+.counter-item small {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.counter-sep {
+    font-size: 24px;
+    color: var(--primary);
+    margin-top: -15px;
+}
+
+/* Question Elegant */
+.question-elegant {
+    margin-bottom: 20px;
+}
+
+.question-text {
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.buttons-elegant {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-elegant {
+    padding: 14px 35px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.yes-elegant {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.4);
+}
+
+.yes-elegant:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(233, 30, 99, 0.5);
+}
+
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    100% { left: 100%; }
+}
+
+.no-elegant {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.no-elegant:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text);
+}
+
+/* Response Elegant */
+.response-elegant {
+    display: none;
+    margin-top: 30px;
+    animation: celebrationPop 0.5s ease-out;
+}
+
+.response-elegant.show {
+    display: block;
+}
+
+@keyframes celebrationPop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.celebration-burst {
+    font-size: 35px;
+    margin-bottom: 20px;
+    animation: burst 1s ease-in-out infinite;
+}
+
+.celebration-burst span {
+    display: inline-block;
+    margin: 0 3px;
+    animation: bounceIn 0.5s ease-out backwards;
+}
+
+.celebration-burst span:nth-child(1) { animation-delay: 0s; }
+.celebration-burst span:nth-child(2) { animation-delay: 0.1s; }
+.celebration-burst span:nth-child(3) { animation-delay: 0.2s; }
+.celebration-burst span:nth-child(4) { animation-delay: 0.3s; }
+.celebration-burst span:nth-child(5) { animation-delay: 0.4s; }
+.celebration-burst span:nth-child(6) { animation-delay: 0.5s; }
+.celebration-burst span:nth-child(7) { animation-delay: 0.6s; }
+.celebration-burst span:nth-child(8) { animation-delay: 0.7s; }
+.celebration-burst span:nth-child(9) { animation-delay: 0.8s; }
+.celebration-burst span:nth-child(10) { animation-delay: 0.9s; }
+
+@keyframes bounceIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.response-title {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 42px;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.response-text {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.forever-text {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 28px;
+    color: var(--primary);
+    margin-top: 20px;
+}
+
+/* Valentine Responsive */
+@media (max-width: 600px) {
+    .valentine-card {
+        padding: 30px 20px;
+        margin: 15px;
+    }
+    
+    .elegant-title {
+        font-size: 28px;
+    }
+    
+    .messages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .photo-frame-elegant {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .buttons-elegant {
+        flex-direction: column;
+    }
+    
+    .counter-display {
+        flex-wrap: wrap;
+    }
+}

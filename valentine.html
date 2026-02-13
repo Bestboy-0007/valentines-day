@@ -3,85 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💕 Happy Valentine's Day 💕</title>
+    <title>For You, My Love 💕</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Pinyon+Script&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Glowing Orb Background -->
-    <div class="bg-glow"></div>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+    </div>
     
-    <!-- Falling Hearts Background -->
+    <!-- Floating Hearts -->
     <div class="hearts-container" id="heartsContainer"></div>
 
-    <!-- Main Content -->
+    <!-- Main Container -->
     <div class="container">
-        <!-- Photo Section -->
-        <div class="photo-frame">
-            <div class="photo-inner">
-                <!-- REPLACE 'girlfriend.jpg' with your girlfriend's photo filename -->
-                <img src="girlfriend.jpg" alt="My Love" class="love-photo" onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex';">
-                <div id="photo-placeholder" class="photo-placeholder">
-                    <span>📷</span>
-                    <p>Add your photo<br>as 'girlfriend.jpg'</p>
-                </div>
-            </div>
-            <div class="photo-sparkles"></div>
-        </div>
-
-        <div class="card">
-            <div class="heart-icon">
-                <span class="heart1">💗</span>
-                <span class="heart2">💖</span>
-                <span class="heart3">💕</span>
-            </div>
-            <h1 class="title">Happy Valentine's Day</h1>
-            <p class="subtitle">My Everything,</p>
-            
-            <!-- Love Letter Section -->
-            <div class="love-letter">
-                <div class="letter-envelope">
-                    <div class="letter-body">
-                        <p class="typed-text" id="typedText"></p>
+        <div class="valentine-card">
+            <!-- Photo Section -->
+            <div class="photo-section">
+                <div class="photo-frame-elegant">
+                    <div class="photo-inner-elegant">
+                        <img src="girlfriend.jpg" alt="My Love" class="love-photo" onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex';">
+                        <div id="photo-placeholder" class="photo-placeholder-elegant">
+                            <span>💕</span>
+                            <p>Add your photo<br>as 'girlfriend.jpg'</p>
+                        </div>
                     </div>
+                    <div class="frame-glow"></div>
                 </div>
+                <p class="photo-label">My Queen 👑</p>
             </div>
-            
-            <!-- Romantic Messages -->
-            <div class="message">
-                <p>💫 Every heartbeat is a reminder of you</p>
-                <p>🌹 You are the love of my life</p>
-                <p>✨ Without you, I'm incomplete</p>
-                <p>💝 I love you more than yesterday</p>
-            </div>
-            
-            <!-- Love Meter -->
-            <div class="love-meter">
-                <span class="meter-label">My Love For You:</span>
-                <div class="meter-bar">
-                    <div class="meter-fill" id="loveMeter"></div>
+
+            <!-- Title -->
+            <div class="elegant-header">
+                <div class="heart-line">
+                    <span>💖</span>
                 </div>
-                <span class="meter-percent" id="meterPercent">100%</span>
+                <h1 class="elegant-title">Happy Valentine's Day</h1>
+                <p class="elegant-subtitle">My Everything,</p>
             </div>
-            
-            <!-- Question Section -->
-            <div class="question-section">
-                <p class="question">Will you be my Valentine forever? 💍</p>
-                <div class="buttons">
-                    <button class="btn yes-btn" onclick="sayYes()">YES! 💕</button>
-                    <button class="btn no-btn" onclick="moveNo()">Think Again 😅</button>
+
+            <!-- Love Letter -->
+            <div class="love-letter-elegant">
+                <div class="letter-content">
+                    <p class="typed-text" id="typedText"></p>
                 </div>
             </div>
 
-            <!-- Response Section (Hidden initially) -->
-            <div class="response" id="response">
-                <div class="celebration-hearts">
-                    <span>💖</span><span>💕</span><span>💗</span><span>💖</span><span>💕</span>
+            <!-- Romantic Messages Grid -->
+            <div class="messages-grid">
+                <div class="message-item">
+                    <span class="message-icon">💫</span>
+                    <p>Every heartbeat reminds me of you</p>
                 </div>
-                <h2>I LOVE YOU! 💍💕</h2>
-                <p>You just made me the luckiest person alive! 🥰</p>
-                <p>Happy Valentine's Day, My Queen! 👑💖</p>
-                <p class="forever">∞ Love You Forever ∞</p>
+                <div class="message-item">
+                    <span class="message-icon">🌹</span>
+                    <p>You are the love of my life</p>
+                </div>
+                <div class="message-item">
+                    <span class="message-icon">✨</span>
+                    <p>Without you, I'm incomplete</p>
+                </div>
+                <div class="message-item">
+                    <span class="message-icon">💝</span>
+                    <p>I love you more than yesterday</p>
+                </div>
+            </div>
+
+            <!-- Love Counter -->
+            <div class="love-counter">
+                <p class="counter-label">Time I've loved you:</p>
+                <div class="counter-display" id="loveCounter">
+                    <span class="counter-item"><span id="days">0</span><small>Days</small></span>
+                    <span class="counter-sep">:</span>
+                    <span class="counter-item"><span id="hours">0</span><small>Hours</small></span>
+                    <span class="counter-sep">:</span>
+                    <span class="counter-item"><span id="minutes">0</span><small>Mins</small></span>
+                    <span class="counter-sep">:</span>
+                    <span class="counter-item"><span id="seconds">0</span><small>Secs</small></span>
+                </div>
+            </div>
+
+            <!-- Question -->
+            <div class="question-elegant">
+                <p class="question-text">Will you be my Valentine forever? 💍</p>
+                <div class="buttons-elegant">
+                    <button class="btn-elegant yes-elegant" onclick="sayYes()">
+                        <span>YES! 💕</span>
+                        <div class="btn-shine"></div>
+                    </button>
+                    <button class="btn-elegant no-elegant" onclick="moveNo()">
+                        <span>Think Again 😅</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Response -->
+            <div class="response-elegant" id="response">
+                <div class="celebration-burst">
+                    <span>💖</span><span>💕</span><span>💗</span><span>💖</span><span>💕</span>
+                    <span>💗</span><span>💖</span><span>💕</span><span>💗</span><span>💖</span>
+                </div>
+                <h2 class="response-title">I LOVE YOU! 💍💕</h2>
+                <p class="response-text">You just made me the luckiest person alive! 🥰</p>
+                <p class="response-text">Happy Valentine's Day, My Queen! 👑💖</p>
+                <p class="forever-text">∞ Love You Forever ∞</p>
             </div>
         </div>
     </div>
@@ -89,9 +117,42 @@
     <!-- Floating Hearts -->
     <div class="floating-hearts" id="floatingHearts"></div>
 
-    <!-- Sparkle effect -->
-    <div class="sparkles" id="sparkles"></div>
-
     <script src="script.js"></script>
+    <script>
+        // Love counter - starts from a date (customize this!)
+        function updateLoveCounter() {
+            // Set the start date of your relationship here!
+            const startDate = new Date('2024-01-01T00:00:00');
+            const now = new Date();
+            const diff = now - startDate;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        
+        updateLoveCounter();
+        setInterval(updateLoveCounter, 1000);
+
+        // Typewriter effect for love letter
+        const loveMessage = "My dearest love, every moment with you is a treasure. You are my sunshine, my everything, and my reason to smile. I love you more than words can express! 💕";
+        let charIndex = 0;
+        
+        function typeWriter() {
+            if (charIndex < loveMessage.length) {
+                document.getElementById('typedText').textContent += loveMessage.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        setTimeout(typeWriter, 1000);
+    </script>
 </body>
 </html>
